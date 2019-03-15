@@ -189,6 +189,8 @@ int main( int argc, char** argv )
             break;
         }
 
+        testCollision( lPaddle, lBall );
+
         lBall.update();
         lPaddle.update();
 
