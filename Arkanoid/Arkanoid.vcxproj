@@ -70,25 +70,25 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>C:\SFML\include;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir);C:\SFML\include;$(IncludePath)</IncludePath>
     <LibraryPath>C:\SFML\lib;$(LibraryPath)</LibraryPath>
     <OutDir>$(SolutionDir)..\bin\$(Configuration)\$(PlatformTarget)\$(ProjectName)\</OutDir>
     <IntDir>$(SolutionDir)..\bin\$(Configuration)\$(PlatformTarget)\$(ProjectName)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>C:\SFML\include;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir);C:\SFML\include;$(IncludePath)</IncludePath>
     <LibraryPath>C:\SFML\lib;$(LibraryPath)</LibraryPath>
     <OutDir>$(SolutionDir)..\bin\$(Configuration)\$(PlatformTarget)\$(ProjectName)\</OutDir>
     <IntDir>$(SolutionDir)..\bin\$(Configuration)\$(PlatformTarget)\$(ProjectName)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>C:\SFML\include;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir);C:\SFML\include;$(IncludePath)</IncludePath>
     <LibraryPath>C:\SFML\lib;$(LibraryPath)</LibraryPath>
     <OutDir>$(SolutionDir)..\bin\$(Configuration)\$(PlatformTarget)\$(ProjectName)\</OutDir>
     <IntDir>$(SolutionDir)..\bin\$(Configuration)\$(PlatformTarget)\$(ProjectName)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>C:\SFML\include;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir);C:\SFML\include;$(IncludePath)</IncludePath>
     <LibraryPath>C:\SFML\lib;$(LibraryPath)</LibraryPath>
     <OutDir>$(SolutionDir)..\bin\$(Configuration)\$(PlatformTarget)\$(ProjectName)\</OutDir>
     <IntDir>$(SolutionDir)..\bin\$(Configuration)\$(PlatformTarget)\$(ProjectName)\</IntDir>
@@ -99,6 +99,9 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(TargetName).pch</PrecompiledHeaderOutputFile>
     </ClCompile>
     <Link>
       <AdditionalDependencies>flac.lib;freetype.lib;ogg.lib;openal32.lib;sfml-audio.lib;sfml-graphics.lib;sfml-main.lib;sfml-network.lib;sfml-system.lib;sfml-window.lib;vorbis.lib;vorbisenc.lib;vorbisfile.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -111,6 +114,9 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(TargetName).pch</PrecompiledHeaderOutputFile>
     </ClCompile>
     <Link>
       <AdditionalDependencies>flac.lib;freetype.lib;ogg.lib;openal32.lib;sfml-audio.lib;sfml-graphics.lib;sfml-main.lib;sfml-network.lib;sfml-system.lib;sfml-window.lib;vorbis.lib;vorbisenc.lib;vorbisfile.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -125,6 +131,9 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(TargetName).pch</PrecompiledHeaderOutputFile>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -141,6 +150,9 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(TargetName).pch</PrecompiledHeaderOutputFile>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -151,6 +163,26 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="types\ball.cpp" />
+    <ClCompile Include="types\brick.cpp" />
+    <ClCompile Include="types\paddle.cpp" />
+    <ClCompile Include="types\shapehelper.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="arkanoid.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="resources\settings.h" />
+    <ClInclude Include="types\ball.h" />
+    <ClInclude Include="types\brick.h" />
+    <ClInclude Include="types\interfaces\i2dshape.h" />
+    <ClInclude Include="types\paddle.h" />
+    <ClInclude Include="types\shapehelper.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
