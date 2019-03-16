@@ -10,10 +10,11 @@ public:
     Paddle( float mX, float mY );
 
 public:
-    const sf::RectangleShape* const getShape() const;
+    const sf::RectangleShape* const getShape()    const;
+    const sf::Vector2f*       const getVelocity() const;
 
 public:
-    virtual void                    update()         override;
+    virtual void update() override;
 
 public:
     virtual float x() const override;

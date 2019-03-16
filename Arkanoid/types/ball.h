@@ -15,7 +15,7 @@ public:
     const sf::CircleShape* const getShape() const ;
 
 public:
-    virtual void             update()         override;
+    virtual void update() override;
 
 public:
     virtual float x() const override;

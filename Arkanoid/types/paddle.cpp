@@ -33,6 +33,11 @@ const sf::RectangleShape* const Paddle::getShape() const
     return &mShape;
 }
 
+const sf::Vector2f* const Paddle::getVelocity() const
+{
+    return &mVelocity;
+}
+
 float Paddle::x() const
 {
     return mShape.getPosition().x;

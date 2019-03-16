@@ -1,8 +1,27 @@
 #pragma once
 
-class Brick
+class Brick : public i2DShape
 {
+private:
+    sf::RectangleShape mShape;
+    bool               mDestroyed{ false };
+
 public:
-    Brick();
-    ~Brick();
+    Brick( float aX, float aY );
+
+public:
+    const sf::RectangleShape* const getShape() const;
+
+public:
+    virtual void update() override;
+
+public:
+    virtual float x() const override;
+    virtual float y() const override;
+
+public:
+    virtual float top()    const override;
+    virtual float bottom() const override;
+    virtual float left()   const override;
+    virtual float right()  const override;
 };

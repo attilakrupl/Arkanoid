@@ -18,14 +18,15 @@ void ShapeHelper::testCollision( Paddle& aPaddle, Ball& aBall )
     sf::Vector2f lVelocity;
 
     lVelocity.y = -kBallVelocity;
+    lVelocity.x = ( aPaddle.getVelocity()->x * 2 / 3);
 
     if( aBall.x() < aPaddle.x() )
     {
-        lVelocity.x = -kBallVelocity;
+        lVelocity.x += -kBallVelocity;
     }
     else
     {
-        lVelocity.x = kBallVelocity;
+        lVelocity.x += kBallVelocity;
     }
 
     aBall.setVelocity( lVelocity );
