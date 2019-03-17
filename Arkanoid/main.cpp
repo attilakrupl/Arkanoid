@@ -15,29 +15,61 @@ int main( int argc, char** argv )
         }
     }
 
-    sf::RenderWindow lWindow{ { kWindowWidth, kWindowHeight }, "Arkanoid" };
+    sf::RenderWindow lWindow{ sf::VideoMode{ kWindowWidth, kWindowHeight }, "Arkanoid" };
     lWindow.setFramerateLimit( 30 );
+    sf::Event lEvent;
 
-    while( true )
+    while( lWindow.isOpen() )
     {
-        lWindow.clear( sf::Color::Black );
-        if( sf::Keyboard::isKeyPressed( sf::Keyboard::Key::Escape ) )
+        auto lStart = std::chrono::system_clock::now();
+
+        while( true )
         {
-            break;
+            bool isWindowEvent = lWindow.pollEvent( lEvent );
+            if ( isWindowEvent 
+              && lEvent.type == sf::Event::Closed )
+            {
+                lWindow.close();
+                break;
+            }
+            if( sf::Keyboard::isKeyPressed( sf::Keyboard::Key::Escape ) )
+            {
+                lWindow.close();
+                break;
+            }
+
+            lWindow.clear( sf::Color::Black );
+
+            lBall.update();
+            lPaddle.update();
+
+            ShapeHelper::testCollision( lPaddle, lBall );
+            for( Brick& lBrick : lBricks )
+            {
+                ShapeHelper::testCollision( lBrick, lBall );
+            }
+
+            lBricks.erase( remove_if( begin( lBricks )
+                , end( lBricks )
+                , []( const Brick& lBrick )
+                {
+                    const bool lIsBrickDestroyed = lBrick.getDestroyed();
+                    return lIsBrickDestroyed;
+                } )
+                , end( lBricks ) );
+
+            lWindow.draw( *lBall.getShape() );
+            lWindow.draw( *lPaddle.getShape() );
+            for( Brick& lBrick : lBricks )
+            {
+                lWindow.draw( *lBrick.getShape() );
+            }
+
+            lWindow.display();
         }
-
-        lBall.update();
-        lPaddle.update();
-        ShapeHelper::testCollision( lPaddle, lBall );
-
-        lWindow.draw( *lBall.getShape()   );
-        lWindow.draw( *lPaddle.getShape() );
-        for( Brick lBrick : lBricks )
-        {
-            lWindow.draw( *lBrick.getShape() );
-        }
-
-        lWindow.display();
+        auto lEnd = std::chrono::system_clock::now();
+        std::chrono::duration<double> lDiff = lEnd - lStart;
+        std::cout << "Time of one iteration: " << lDiff.count() << " s\n";
     }
-    return 0;
+    return EXIT_SUCCESS;
 }

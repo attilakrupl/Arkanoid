@@ -3,6 +3,9 @@
 #include <SFML/Window.hpp> 
 #include <SFML/Graphics.hpp>
 
+#include <chrono>
+#include <iostream>
+
 #include "resources/settings.h"
 
 #include "types/interfaces/i2dshape.h"

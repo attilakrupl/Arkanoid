@@ -13,6 +13,16 @@ const sf::RectangleShape* const Brick::getShape() const
     return &mShape;
 }
 
+const bool Brick::getDestroyed() const
+{
+    return mDestroyed;
+}
+
+void Brick::setDestroyed( bool aIsDestroyed )
+{
+    mDestroyed = aIsDestroyed;
+}
+
 void Brick::update()
 {}
 

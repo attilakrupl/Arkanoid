@@ -10,7 +10,9 @@ public:
     Brick( float aX, float aY );
 
 public:
-    const sf::RectangleShape* const getShape() const;
+    const sf::RectangleShape* const getShape()     const;
+    const bool                      getDestroyed() const;
+          void                      setDestroyed( bool aIsDestroyed );
 
 public:
     virtual void update() override;
