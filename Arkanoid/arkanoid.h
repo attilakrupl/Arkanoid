@@ -5,6 +5,7 @@
 
 #include <chrono>
 #include <iostream>
+#include <cstdlib>
 
 #include "resources/settings.h"
 

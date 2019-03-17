@@ -4,7 +4,7 @@ Brick::Brick( float aX, float aY )
 {
     mShape.setPosition ( aX, aY                                );
     mShape.setSize     ( { kBlockWidth, kBlockHeight }         );
-    mShape.setFillColor( sf::Color::Yellow                     );
+    mShape.setFillColor( ShapeHelper::GetRandomColor()         );
     mShape.setOrigin   ( kBlockWidth / 2.f, kBlockHeight / 2.f );
 }
 

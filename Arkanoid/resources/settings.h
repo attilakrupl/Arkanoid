@@ -18,3 +18,12 @@ constexpr float        kBlockWidth    { 60.f };
 constexpr float        kBlockHeight   { 20.f }; 
 constexpr unsigned int kCountBlocksX  { 11   };
 constexpr unsigned int kCountBlocksY  { 4    };
+
+// Block Colors
+const std::vector<sf::Color> kBlockColors{ sf::Color::White,
+                                           sf::Color::Red,
+                                           sf::Color::Green,
+                                           sf::Color::Blue,
+                                           sf::Color::Yellow,
+                                           sf::Color::Magenta,
+                                           sf::Color::Cyan };

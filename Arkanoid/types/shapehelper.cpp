@@ -65,3 +65,11 @@ void ShapeHelper::testCollision( Brick& aBrick, Ball& aBall )
 
     aBall.setVelocity( lNewVelocity );
 }
+
+sf::Color ShapeHelper::GetRandomColor()
+{
+    size_t    lNumberOfColors   = kBlockColors.size();
+    size_t    lRandomColorIndex = rand() % lNumberOfColors;
+    sf::Color lRandomColor      = kBlockColors[lRandomColorIndex];
+    return lRandomColor;
+}

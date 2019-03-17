@@ -7,6 +7,9 @@ public:
     static void testCollision( Paddle& aPaddle, Ball& aBall );
     static void testCollision( Brick& aBrick, Ball& aBall );
 
+public:
+    static sf::Color GetRandomColor();
+
 private:
     ShapeHelper() = delete;
 };
