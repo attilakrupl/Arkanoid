@@ -15,6 +15,15 @@
       <Filter>types</Filter>
     </ClCompile>
     <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="infrastructure\buttons.cpp">
+      <Filter>infrastructure</Filter>
+    </ClCompile>
+    <ClCompile Include="infrastructure\gameover.cpp">
+      <Filter>infrastructure</Filter>
+    </ClCompile>
+    <ClCompile Include="infrastructure\menu.cpp">
+      <Filter>infrastructure</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="types">
@@ -25,6 +34,9 @@
     </Filter>
     <Filter Include="types\interfaces">
       <UniqueIdentifier>{f06046c0-753e-4f18-96ea-46efe48d02bc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="infrastructure">
+      <UniqueIdentifier>{92b3aff9-3526-4db6-8b35-97e6d8b00d00}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -48,5 +60,14 @@
       <Filter>types</Filter>
     </ClInclude>
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="infrastructure\menu.h">
+      <Filter>infrastructure</Filter>
+    </ClInclude>
+    <ClInclude Include="infrastructure\buttons.h">
+      <Filter>infrastructure</Filter>
+    </ClInclude>
+    <ClInclude Include="infrastructure\gameover.h">
+      <Filter>infrastructure</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

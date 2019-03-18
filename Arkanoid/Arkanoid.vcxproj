@@ -162,6 +162,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="infrastructure\buttons.cpp" />
+    <ClCompile Include="infrastructure\gameover.cpp" />
+    <ClCompile Include="infrastructure\menu.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -176,6 +179,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="arkanoid.h" />
+    <ClInclude Include="infrastructure\buttons.h" />
+    <ClInclude Include="infrastructure\gameover.h" />
+    <ClInclude Include="infrastructure\menu.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="resources\settings.h" />
     <ClInclude Include="types\ball.h" />
